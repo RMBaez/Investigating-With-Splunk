@@ -69,17 +69,31 @@ Answer is A1berto <br/>
 <h2>Program walk-through</h2>
 
 <b>Answer the question below <br/>
-3. ?
+On the same host, a registry key was also updated regarding the new backdoor user. What is the full path of that registry key?
 
 
 <p align="center">
-The command needed to find the answer is given during the module explaination. The filter is icmp.type == 3 and icmp.code == 3. The numbers to the right of Displayed, is the answer: <br/>
-<img width="1440" alt="Screenshot 2025-04-04 at 10 55 20 AM" src="https://github.com/user-attachments/assets/3b407a04-e9cb-4e36-81d6-7d67f1d40dc0" />
+We now know which device the user A1berto was created on. <img width="1440" alt="Screenshot 2025-04-15 at 12 42 58 PM" src="https://github.com/user-attachments/assets/410b3f31-0e99-452d-a84d-25bf5fcd724b" /> <br/>
+
+  
+We add Micheal.Beaven in the seach bar
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/7ad5b04f-82e5-441f-88ac-cde3c3f14371" />
+
+  
+To find the answer I did a few things. Frist, I google for the event id that was associated with registry modification. The event id I received and inputted resulted in zero events. I removed the attempted event id search and instead, I then added the user "A1berto" into the search bar since the user "A1berto" is still the topic. It helped to reduced the number of events low enough where I wouldn't mind scrolling and reading through the events to find the answer. However, I want to be a bit more precise. I looked through the fields and found "extracted_EventType" which caught my eye. I clicked it and saw CreateKey so I added that into my search resulting in 1 event.
+<img width="1440" alt="Screenshot 2025-04-15 at 1 11 52 PM" src="https://github.com/user-attachments/assets/7ee146cd-e597-4777-9b80-ad9c98b649d2" />
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/5025cc9a-d8b0-4bde-98bd-2e1cbc0edc0d" />
+
+
+I scrolled down and under the field "Target_Object" the answer appears.
+<img width="1440" alt="Screenshot 2025-04-15 at 1 16 33 PM" src="https://github.com/user-attachments/assets/21d3fae0-3243-4c74-99de-b65a400e6c24" />
+
+
 
 
 <br />
 <br />
-Answer is 1083: <br/>
+Answer is HKLM\SAM\SAM\Domains\Account\Users\Names\A1berto <br/>
 
 
 
