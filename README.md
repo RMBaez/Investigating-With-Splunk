@@ -103,16 +103,15 @@ Answer is HKLM\SAM\SAM\Domains\Account\Users\Names\A1berto <br/>
 <h2>Program walk-through</h2>
 
 <b>Answer the question below <br/>
-4.?
+Examine the logs and identify the user that the adversary was trying to impersonate.
 
 <p align="center">
-The filter to be used is udp.port in {55..70}. As we can see from the search results, the first UDP attempts met a closed port. But upon the third try, an open port was found.: <br/>
-<img width="1440" alt="Screenshot 2025-04-04 at 11 16 50 AM" src="https://github.com/user-attachments/assets/3b057665-c16b-4b45-aad4-79e4bc86fb30" />
+The answer was dicussed in an earlier question. User A1berto is impersonating Alberto
 
 
 <br />
 <br />
-Answer is 68: <br/>
+Answer is Alberto <br/>
 
 
 
@@ -120,18 +119,23 @@ Answer is 68: <br/>
 
 <b>Answer the question below <br/>
 
-1. ?
+What is the command used to add a backdoor user from a remote computer?
 
 <p align="center">
-The command needed to find the answer is given during the module explaination. The question is looking for any packet that has a size greater than 1024 bytes. The command will be, tcp.flags.syn == 1 and tcp.flags.ack == 0 and tcp.window_size > 1024. . The numbers to the right of Displayed is the answer: <br/>
-<img width="1440" alt="Screenshot 2025-04-04 at 10 23 13 AM" src="https://github.com/user-attachments/assets/c081e3aa-b58a-4a90-ab7a-d8d4ede25e09" />
+I knew to look for an executable file(.exe). Since the question asked what command was used, I looked the a field containing the word command and "CommandLine" appeared. I did a quick look at it and saw one that looked suspicious. I decided to seach the field "CommandLine" as a wildcard just to not overlook anything. Also, I once again added user "A1berto" to focus the search. <br/>
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/c295758a-0cf0-42ab-be0c-7f12cb61cc74" />
+
+  
+With 7 results I looked through them all. Looking at each CommandLine field within the events, the one that had looked suspicious to me was the answer to the question.
+<img width="1440" alt="Screenshot 2025-04-15 at 1 37 12 PM" src="https://github.com/user-attachments/assets/8d058594-06b9-4abf-b23c-5d9dbc1f936f" />
+
 
 
 
 
 <br />
 <br />
-Answer is 1000: <br/>
+Answer is C:\windows\System32\Wbem\WMIC.exe" /node:WORKSTATION6 process call create "net user /add A1berto paw0rd1 <br/>
 
 
 
