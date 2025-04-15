@@ -11,10 +11,6 @@ SOC Analyst Johny has observed some anomalous behaviours in the logs of a few wi
 - <b>On the same host, a registry key was also updated regarding the new backdoor user. What is the full path of that registry key?</b>
 - <b>Examine the logs and identify the user that the adversary was trying to impersonate.</b>
 - <b>What is the command used to add a backdoor user from a remote computer?</b>
-- <b>How many times was the login attempt from the backdoor user observed during the investigation?</b>
-- <b>What is the name of the infected host on which suspicious Powershell commands were executed?</b>
-- <b>PowerShell logging is enabled on this device. How many events were logged for the malicious PowerShell execution?</b>
-- <b>An encoded Powershell script from the infected host initiated a web request. What is the full URL?<b/>
 
 
 <h2>Languages and Utilities Used</h2>
@@ -142,65 +138,6 @@ The full search should be " index=main EventID=4688 A1berto ". Look at the Comma
 <br />
 <br />
 Answer is C:\windows\System32\Wbem\WMIC.exe" /node:WORKSTATION6 process call create "net user /add A1berto paw0rd1 <br/>
-
-
-
-
-
-<h2>Program walk-through</h2>
-
-<b>Answer the question below <br/>
-2. ?
-
-<p align="center">
-Since we want to know that we are looking at port 80 via TCP. Click on the mint green filter bar, and use the filter tcp.port == 80. Looking at the first 4 results we can see that they are all part of the same stream by the connecting bracket. So next we want to move down to the Info section, to figure out what type of scan this could be. Taking a look at the different flags that were used, we see SYN, SYN ACK, ACK, RST ACK. It looks like the process of a Three-way Handshake.: <br/>
-<img width="1440" alt="Screenshot 2025-04-04 at 10 35 15 AM" src="https://github.com/user-attachments/assets/88a82ae6-6f08-4f6c-bc79-6c5d2bd95312" />
-
-
-
-
-
-<br />
-<br />
-Answer is TCP Connect: <br/>
-
-
-
-
-<h2>Program walk-through</h2>
-
-<b>Answer the question below <br/>
-3. ?
-
-
-<p align="center">
-The command needed to find the answer is given during the module explaination. The filter is icmp.type == 3 and icmp.code == 3. The numbers to the right of Displayed, is the answer: <br/>
-<img width="1440" alt="Screenshot 2025-04-04 at 10 55 20 AM" src="https://github.com/user-attachments/assets/3b407a04-e9cb-4e36-81d6-7d67f1d40dc0" />
-
-
-<br />
-<br />
-Answer is 1083: <br/>
-
-
-
-
-
-
-<h2>Program walk-through</h2>
-
-<b>Answer the question below <br/>
-4.?
-
-<p align="center">
-The filter to be used is udp.port in {55..70}. As we can see from the search results, the first UDP attempts met a closed port. But upon the third try, an open port was found.: <br/>
-<img width="1440" alt="Screenshot 2025-04-04 at 11 16 50 AM" src="https://github.com/user-attachments/assets/3b057665-c16b-4b45-aad4-79e4bc86fb30" />
-
-
-<br />
-<br />
-Answer is 68: <br/>
-
 
 
 
